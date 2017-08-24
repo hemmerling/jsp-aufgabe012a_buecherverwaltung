@@ -6,8 +6,8 @@
 <%@page import="java.util.Enumeration"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="java.io.PrintWriter"%>
-<%@page import="com.hemmerling.aufgabe05d_buecherverwaltung.model.persistence.*"%>
-<%@page import="com.hemmerling.aufgabe05d_buecherverwaltung.model.business.*"%>
+<%@page import="com.hemmerling.aufgabe12a_buecherverwaltung.model.persistence.*"%>
+<%@page import="com.hemmerling.aufgabe12a_buecherverwaltung.model.business.*"%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
@@ -15,7 +15,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Buch anlegen [Web Components ( aufgabe05d_buchverwaltung )]</title>
+        <title>Buch anlegen [Web Components ( aufgabe12a_buchverwaltung )]</title>
     </head>
     <body>
         <jsp:include page = "header.jsp"/>

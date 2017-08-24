@@ -3,18 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.hemmerling.aufgabe05d_buecherverwaltung.model.business;
+package com.hemmerling.aufgabe12a_buecherverwaltung.model.business;
 
+import com.hemmerling.aufgabe12a_buecherverwaltung.model.persistence.Book;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import com.hemmerling.aufgabe05d_buecherverwaltung.model.persistence.*;
 import javax.servlet.http.HttpSession;
 
-/**
- *
- * @author Administrator
- */
-public class BookCreateAction {
+public class BookSetAction {
 
     // Parameter
     private static final String ID = "id";
@@ -33,13 +29,13 @@ public class BookCreateAction {
         String yearOfRelease = request.getParameter(YEAROFRELEASE);
         String isbn = request.getParameter(ISBN);
         String genre = request.getParameter(GENRE);
-           
+        
         if ((isbn != null && !isbn.trim().isEmpty())
                 & (title != null && !title.trim().isEmpty())) {
             Book book = new Book(id, title, autor, yearOfRelease, isbn, genre);
             HttpSession session = request.getSession();
             BookService bookService = (BookService) session.getAttribute(BOOKSERVICE);
-            bookService.add(book);
+            bookService.set(id, book);
         }
     }
 }

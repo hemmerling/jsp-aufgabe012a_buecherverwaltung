@@ -3,14 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.hemmerling.aufgabe05d_buecherverwaltung.listener;
+package com.hemmerling.aufgabe12a_buecherverwaltung.listener;
 
 import javax.servlet.annotation.WebListener;
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.HttpSessionEvent;
 import javax.servlet.http.HttpSessionListener;
 
-import com.hemmerling.aufgabe05d_buecherverwaltung.model.business.BookService;
+import com.hemmerling.aufgabe12a_buecherverwaltung.model.business.BookService;
 
 /**
  * Web application lifecycle listener.

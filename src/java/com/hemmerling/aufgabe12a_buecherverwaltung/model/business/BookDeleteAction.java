@@ -3,9 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.hemmerling.aufgabe05d_buecherverwaltung.model.business;
+package com.hemmerling.aufgabe12a_buecherverwaltung.model.business;
 
-import com.hemmerling.aufgabe05d_buecherverwaltung.model.persistence.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;

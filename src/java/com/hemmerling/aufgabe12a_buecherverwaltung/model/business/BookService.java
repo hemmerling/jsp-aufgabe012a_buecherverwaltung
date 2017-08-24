@@ -3,11 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.hemmerling.aufgabe05d_buecherverwaltung.model.business;
+package com.hemmerling.aufgabe12a_buecherverwaltung.model.business;
 
+import com.hemmerling.aufgabe12a_buecherverwaltung.model.persistence.Book;
 import java.util.ArrayList;
 import java.util.List;
-import com.hemmerling.aufgabe05d_buecherverwaltung.model.persistence.*;
 
 /**
  *

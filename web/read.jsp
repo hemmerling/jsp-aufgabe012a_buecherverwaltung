@@ -6,8 +6,8 @@
 
 <%@page import="java.util.List"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="com.hemmerling.aufgabe05d_buecherverwaltung.model.business.BookService"%>
-<%@page import="com.hemmerling.aufgabe05d_buecherverwaltung.model.persistence.Book"%>
+<%@page import="com.hemmerling.aufgabe12a_buecherverwaltung.model.business.BookService"%>
+<%@page import="com.hemmerling.aufgabe12a_buecherverwaltung.model.persistence.Book"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>

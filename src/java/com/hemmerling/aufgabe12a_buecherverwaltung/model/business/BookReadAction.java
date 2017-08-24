@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.hemmerling.aufgabe05d_buecherverwaltung.controller;
+package com.hemmerling.aufgabe12a_buecherverwaltung.model.business;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -16,29 +16,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.hemmerling.aufgabe05d_buecherverwaltung.model.business.*;
-import com.hemmerling.aufgabe05d_buecherverwaltung.model.persistence.Book;
+import com.hemmerling.aufgabe12a_buecherverwaltung.model.persistence.Book;
 
 /**
  *
  * @author rhemmerling
  */
-@WebServlet(name = "FrontController", urlPatterns = {"/FrontController"})
-public class FrontController extends HttpServlet {
+@WebServlet(name = "BookReadAction", urlPatterns = {"/BookReadAction"})
+public class BookReadAction extends HttpServlet {
 
-    private static final String ACTION = "action";
-    private static final String CREATE = "create";
-    private static final String READ = "read";
-    private static final String DELETE = "delete";
-    private static final String UPDATE = "update";
-    private static final String SET = "set";
-
-    private static final String STARTPAGE = "index.jsp";
-    private static final String CREATEPAGE = "create.jsp";
+    private static final String BOOKLIST = "booklist";
+    private static final String BOOKSERVICE = "bookservice";
     private static final String READPAGE = "read.jsp";
 
-    private static final String BOOKSERVICE = "bookservice";
-
+ 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -50,46 +41,14 @@ public class FrontController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String nextPage = STARTPAGE;
         response.setContentType("text/html;charset=UTF-8");
-
+        
         HttpSession session = request.getSession();
         BookService bookService = (BookService) session.getAttribute(BOOKSERVICE);
-
-        String action = request.getParameter(ACTION);
-
-        if (action != null && !action.trim().isEmpty()) {
-            switch (action) {
-               case UPDATE: {
-                    new BookCreateAction().execute(request, response);
-                    nextPage = CREATEPAGE;
-                    break;
-                }
-               case CREATE: {
-                    new BookCreateAction().execute(request, response);
-                    //nextPage = CREATEPAGE;
-                    nextPage = READPAGE;
-                    break;
-                }
-                case READ: {
-                    nextPage = READPAGE;
-                    break;
-                }
-                case DELETE: {
-                    new BookDeleteAction().execute(request, response);
-                    nextPage = READPAGE;
-                    break;
-                }
-                case SET: {
-                    new BookSetAction().execute(request, response);
-                    //nextPage = CREATEPAGE;
-                    nextPage = READPAGE;
-                    break;
-                }
-            }
-
-        }
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher(nextPage);
+        List<Book> bookList = bookService.get();
+        session.setAttribute(BOOKLIST, bookList);
+    
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher(READPAGE);
         requestDispatcher.forward(request, response);
     }
 
