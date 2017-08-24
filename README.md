@@ -1,2 +1,2 @@
-# jsp-aufgabe012a_buecherverwaltung
-jsp-aufgabe012a_buecherverwaltung
+# jsp-aufgabe12a_buecherverwaltung
+jsp-aufgabe12a_buecherverwaltung
