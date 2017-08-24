@@ -5,13 +5,7 @@
  */
 package com.hemmerling.aufgabe12a_buecherverwaltung.controller;
 
-import com.hemmerling.aufgabe12a_buecherverwaltung.model.business.BookSetAction;
-import com.hemmerling.aufgabe12a_buecherverwaltung.model.business.BookDeleteAction;
-import com.hemmerling.aufgabe12a_buecherverwaltung.model.business.BookService;
-import com.hemmerling.aufgabe12a_buecherverwaltung.model.business.BookCreateAction;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -19,8 +13,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import com.hemmerling.aufgabe12a_buecherverwaltung.model.business.*;
 
-import com.hemmerling.aufgabe12a_buecherverwaltung.model.persistence.Book;
 
 /**
  *
@@ -64,7 +58,7 @@ public class FrontController extends HttpServlet {
         if (action != null && !action.trim().isEmpty()) {
             switch (action) {
                case UPDATE: {
-                    new BookCreateAction().execute(request, response);
+                    new BookUpdateAction().execute(request, response);
                     nextPage = CREATEPAGE;
                     break;
                 }
