@@ -4,8 +4,8 @@
     Author     : rhemmerling
 --%>
 <a href="index.jsp">Startseite</a>!
-<a href="index1.jsp">Buchverwaltung ohne Login</a> !
-<a href="index2.jsp">Buchverwaltung mit Login</a> !
+<a href="FrontController2/read">Buchliste</a> !
+<a href="./create2.jsp">Buch anlegen</a> !
 
 
 

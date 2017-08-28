@@ -52,7 +52,7 @@ public class FrontController extends HttpServlet {
 
         HttpSession session = request.getSession();
         BookService bookService = (BookService) session.getAttribute(BOOKSERVICE);
-
+       
         String action = request.getParameter(ACTION);
 
         if (action != null && !action.trim().isEmpty()) {

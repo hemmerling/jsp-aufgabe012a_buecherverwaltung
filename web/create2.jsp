@@ -18,7 +18,7 @@
         <title>Buch anlegen [Web Components ( aufgabe12a_buchverwaltung )]</title>
     </head>
     <body>
-        <jsp:include page = "header1.jsp"/>
+        <jsp:include page = "header2.jsp"/>
         <h1>Buch anlegen</h1>
 
         <script type="text/javascript">
@@ -39,7 +39,7 @@
                 document.getElementsByName("genre")[0].value = 'sachbuch';
             }
         </script>
-        <form method="post" action="FrontController" name="theForm">
+        <form method="post" action="FrontController/create" name="theForm">
             <%
 //            Enumeration paramNames = request.getParameterNames();
 //            while (paramNames.hasMoreElements()) {

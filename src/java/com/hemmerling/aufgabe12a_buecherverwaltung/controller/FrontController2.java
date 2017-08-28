@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.hemmerling.aufgabe12a_buecherverwaltung.controller2;
+package com.hemmerling.aufgabe12a_buecherverwaltung.controller;
 
 import com.hemmerling.aufgabe12a_buecherverwaltung.controller.*;
 import java.io.IOException;
@@ -15,14 +15,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import com.hemmerling.aufgabe12a_buecherverwaltung.model.business.*;
+import static java.lang.System.out;
 
 
 /**
  *
  * @author rhemmerling
  */
-@WebServlet(name = "FrontController", urlPatterns = {"/FrontController2"})
-public class FrontController extends HttpServlet {
+@WebServlet(name = "FrontController2", urlPatterns = {"/FrontController2/*"})
+public class FrontController2 extends HttpServlet {
 
     private static final String ACTION = "action";
     private static final String CREATE = "create";
@@ -31,9 +32,9 @@ public class FrontController extends HttpServlet {
     private static final String UPDATE = "update";
     private static final String SET = "set";
 
-    private static final String STARTPAGE = "index.jsp";
-    private static final String CREATEPAGE = "create.jsp";
-    private static final String READPAGE = "read.jsp";
+    private static final String STARTPAGE = "/FrontController2/index2.jsp";
+    private static final String CREATEPAGE = "/FrontControllet2/create2.jsp";
+    private static final String READPAGE = "/FrontController2/read2.jsp";
 
     private static final String BOOKSERVICE = "bookservice";
 
@@ -50,11 +51,17 @@ public class FrontController extends HttpServlet {
             throws ServletException, IOException {
         String nextPage = STARTPAGE;
         response.setContentType("text/html;charset=UTF-8");
-
+                    
         HttpSession session = request.getSession();
         BookService bookService = (BookService) session.getAttribute(BOOKSERVICE);
 
-        String action = request.getParameter(ACTION);
+        String action = request.getPathInfo(); // ===> "/bookList"
+        if (action == null) {
+            action = "";
+        }
+        System.out.println(action);
+        action = action.substring(1); // ===> "bookList"
+        System.out.println(action);
 
         if (action != null && !action.trim().isEmpty()) {
             switch (action) {
@@ -87,6 +94,7 @@ public class FrontController extends HttpServlet {
             }
 
         }
+
         RequestDispatcher requestDispatcher = request.getRequestDispatcher(nextPage);
         requestDispatcher.forward(request, response);
     }
@@ -117,7 +125,7 @@ public class FrontController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        //processRequest(request, response);
     }
 
     /**

@@ -16,7 +16,7 @@
         <title>Booklist</title>
     </head>
     <body>
-        <jsp:include page = "header1.jsp" />
+        <jsp:include page = "header2.jsp" />
         <h1>Booklist</h1>
         <%
             BookService bookService = (BookService) session.getAttribute("bookservice");
