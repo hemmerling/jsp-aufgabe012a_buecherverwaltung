@@ -54,8 +54,6 @@ public class FrontController2 extends HttpServlet {
         BookService bookService = (BookService) session.getAttribute(BOOKSERVICE);
        
         String action = request.getParameter(ACTION);
-        //System.out.println(action); // ##
-        //System.out.println("getPathInfo(): " + request.getPathInfo());
 
         if (action != null && !action.trim().isEmpty()) {
             switch (action) {
