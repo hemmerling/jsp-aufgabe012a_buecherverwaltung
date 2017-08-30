@@ -12,8 +12,8 @@
         <title>Startseite [Web Components ( aufgabe12a_buchverwaltung )]</title>
     </head>
     <body>
-        <jsp:include page = "header2.jsp"/>
-        <h1>Web Components ( aufgabe12a_buchverwaltung ) mit Login - Startseite</h1>
-        <jsp:include page = "footer.jsp" />
+        <jsp:include page = "${context}/header2.jsp"/>
+        <h1>Web Components ( aufgabe12a_buchverwaltung ) ohne Login - Startseite</h1>
+        <jsp:include page = "${context}/footer.jsp" />
     </body>
 </html>
