@@ -44,17 +44,25 @@ public class FrontController3 extends HttpServlet {
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
+     * 
+     * Processes just the doGet() request
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String nextPage = STARTPAGE;
+        String nextPage = null;
         response.setContentType("text/html;charset=UTF-8");
 
         HttpSession session = request.getSession();
         BookService bookService = (BookService) session.getAttribute(BOOKSERVICE);
  
-        String action = request.getParameter(ACTION);
-
+        //String action = request.getParameter(ACTION);
+        String action = request.getPathInfo(); // ===> "/bookList"
+        if (action == null) {
+            action = "";
+        }
+        action = action.substring(1); // ===> "bookList"
+        System.out.println("=================> action = " + action);
+        
         if (action != null && !action.trim().isEmpty()) {
             switch (action) {
                case UPDATE: {
@@ -87,9 +95,11 @@ public class FrontController3 extends HttpServlet {
 
         }
         
-        RequestDispatcher requestDispatcher = 
-                request.getRequestDispatcher(nextPage);
-        requestDispatcher.forward(request, response);
+        if (nextPage != null) {
+            RequestDispatcher requestDispatcher
+                    = request.getRequestDispatcher(nextPage);
+            requestDispatcher.forward(request, response);
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -118,7 +128,7 @@ public class FrontController3 extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        //processRequest(request, response);
     }
 
     /**
