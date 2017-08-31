@@ -60,8 +60,9 @@ public class FrontController3 extends HttpServlet {
         if (action == null) {
             action = "";
         }
-        action = action.substring(1); // ===> "bookList"
         System.out.println("=================> action = " + action);
+        action = action.substring(1); // ===> "bookList"
+        System.out.println("=================> action.substring(1) = " + action);
         
         if (action != null && !action.trim().isEmpty()) {
             switch (action) {

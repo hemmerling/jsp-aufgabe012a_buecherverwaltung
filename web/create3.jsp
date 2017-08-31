@@ -42,7 +42,7 @@
             }
         </script>
         <c:set var="context2" value="${pageContext.request.contextPath}" />
-        <form method="post" action="${context2}/FrontController3" name="theForm">
+        <form method="post" action="${context2}/FrontController3/create" name="theForm">
             <%
 //            Enumeration paramNames = request.getParameterNames();
 //            while (paramNames.hasMoreElements()) {
