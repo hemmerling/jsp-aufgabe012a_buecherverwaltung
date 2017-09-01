@@ -39,8 +39,8 @@
             <li><%= ii%>&nbsp;<%= bookList.get(ii).getId()%>&nbsp;<%= bookList.get(ii).getTitle()%>&nbsp;
                 <%= bookList.get(ii).getAuthor()%>&nbsp;<%= bookList.get(ii).getYearOfRelease()%>&nbsp;
                 <%= bookList.get(ii).getIsbn()%>&nbsp;<%= bookList.get(ii).getGenre()%>&nbsp;
-                <a href="${context2}/FrontController3?action=delete&id2=<%= ii%>">Löschen</a>&nbsp;
-                <a href="${context2}/FrontController3?action=update&id2=<%= ii%>">Bearbeiten</a></li>
+                <a href="${context2}/FrontController3/delete?id2=<%= ii%>">Löschen</a>&nbsp;
+                <a href="${context2}/FrontController3/update?id2=<%= ii%>">Bearbeiten</a></li>
                 <% } %>
         
         <% }%>

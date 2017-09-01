@@ -75,8 +75,8 @@
                 ISBN: <input type="text" name="isbn" />
                 Genre: <input type="text" name="genre" />
             <% } %>
-            <input type="button" value="Ausfüllen des Forumulars #1" onclick="fillForm1()"  />
-            <input type="button" value="Ausfüllen des Forumulars #2" onclick="fillForm2()"  />
+            <input type="button" value="Ausfüllen des Formulars #1" onclick="fillForm1()"  />
+            <input type="button" value="Ausfüllen des Formulars #2" onclick="fillForm2()"  />
             <input type="reset" value="Reset" />
             <input type="submit" value="Submit" />
         </form>

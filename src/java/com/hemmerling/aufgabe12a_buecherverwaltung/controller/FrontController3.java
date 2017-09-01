@@ -56,16 +56,16 @@ public class FrontController3 extends HttpServlet {
         BookService bookService = (BookService) session.getAttribute(BOOKSERVICE);
  
         //String action = request.getParameter(ACTION);
-        String action = request.getPathInfo(); // ===> "/bookList"
-        if (action == null) {
-            action = "";
+        String actionPathinfo = request.getPathInfo(); // ===> "/bookList"
+        if (actionPathinfo == null) {
+            actionPathinfo = "";
         }
-        System.out.println("=================> action = " + action);
-        action = action.substring(1); // ===> "bookList"
+        System.out.println("=================> action = " + actionPathinfo);
+        String action = actionPathinfo.substring(1); // ===> "bookList"
         System.out.println("=================> action.substring(1) = " + action);
         
         if (action != null && !action.trim().isEmpty()) {
-            switch (action) {
+            switch (action) { 
                case UPDATE: {
                     new BookUpdateAction().execute(request, response);
                     nextPage = CREATEPAGE;
@@ -92,9 +92,19 @@ public class FrontController3 extends HttpServlet {
                     nextPage = READPAGE;
                     break;
                 }
+                case READPAGE: {
+                    nextPage = "/"+READPAGE;
+                    break;
+                }
+                case CREATEPAGE: {
+                    nextPage = "/"+CREATEPAGE;
+                    break;
+                }
             }
 
         }
+ 
+        System.out.println("=================> nextPage = " + nextPage);
         
         if (nextPage != null) {
             RequestDispatcher requestDispatcher
