@@ -27,12 +27,13 @@ public class FrontController3 extends HttpServlet {
     private static final String CREATE = "create";
     private static final String READ = "read";
     private static final String DELETE = "delete";
-    private static final String UPDATE = "update";
     private static final String SET = "set";
+    private static final String UPDATE = "update";
 
     private static final String STARTPAGE = "index.jsp";
     private static final String CREATEPAGE = "create3.jsp";
     private static final String READPAGE = "read3.jsp";
+    private static final String UPDATEPAGE = "update3.jsp";
 
     private static final String BOOKSERVICE = "bookservice";
 
@@ -52,11 +53,14 @@ public class FrontController3 extends HttpServlet {
         String nextPage = null;
         response.setContentType("text/html;charset=UTF-8");
 
+        System.out.println("=================> START");
+
         HttpSession session = request.getSession();
         BookService bookService = (BookService) session.getAttribute(BOOKSERVICE);
- 
+
         //String action = request.getParameter(ACTION);
         String actionPathinfo = request.getPathInfo(); // ===> "/bookList"
+
         if (actionPathinfo == null) {
             actionPathinfo = "";
         }
@@ -67,12 +71,16 @@ public class FrontController3 extends HttpServlet {
         if (action != null && !action.trim().isEmpty()) {
             switch (action) { 
                case UPDATE: {
+                    System.out.println("Buch update #1");
                     new BookUpdateAction().execute(request, response);
-                    nextPage = CREATEPAGE;
+                    System.out.println("Buch update #2");
+                    nextPage = UPDATEPAGE;
                     break;
                 }
                case CREATE: {
-                    new BookCreateAction().execute(request, response);
+                   System.out.println("Buch create #1");
+                   new BookCreateAction().execute(request, response);
+                   System.out.println("Buch create #4");
                     //nextPage = CREATEPAGE;
                     nextPage = READPAGE;
                     break;
@@ -87,17 +95,23 @@ public class FrontController3 extends HttpServlet {
                     break;
                 }
                 case SET: {
-                    new BookSetAction().execute(request, response);
+                   System.out.println("Buch set #1");
+                    //new BookSetAction().execute(request, response);
+                   System.out.println("Buch set #10");
                     //nextPage = CREATEPAGE;
                     nextPage = READPAGE;
+                    break;
+                }
+                case CREATEPAGE: {
+                    nextPage = "/"+CREATEPAGE;
                     break;
                 }
                 case READPAGE: {
                     nextPage = "/"+READPAGE;
                     break;
                 }
-                case CREATEPAGE: {
-                    nextPage = "/"+CREATEPAGE;
+                case UPDATEPAGE: {
+                    nextPage = "/"+UPDATEPAGE;
                     break;
                 }
             }

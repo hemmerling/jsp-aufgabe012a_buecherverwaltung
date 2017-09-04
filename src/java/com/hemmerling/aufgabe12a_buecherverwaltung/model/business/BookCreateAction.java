@@ -27,15 +27,18 @@ public class BookCreateAction {
     private static final String BOOKSERVICE = "bookservice";
 
     public void execute(HttpServletRequest request, HttpServletResponse response) {
+        System.out.println(request.getParameter(ID));
         int id = Integer.valueOf(request.getParameter(ID));
         String title = request.getParameter(TITLE);
         String autor = request.getParameter(AUTHOR);
         String yearOfRelease = request.getParameter(YEAROFRELEASE);
         String isbn = request.getParameter(ISBN);
         String genre = request.getParameter(GENRE);
+        System.out.println("Buch create #2");
            
         if ((isbn != null && !isbn.trim().isEmpty())
                 & (title != null && !title.trim().isEmpty())) {
+            System.out.println("Buch create #3");
             Book book = new Book(id, title, autor, yearOfRelease, isbn, genre);
             HttpSession session = request.getSession();
             BookService bookService = (BookService) session.getAttribute(BOOKSERVICE);
