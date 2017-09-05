@@ -53,8 +53,6 @@ public class FrontController3 extends HttpServlet {
         String nextPage = null;
         response.setContentType("text/html;charset=UTF-8");
 
-        System.out.println("=================> START");
-
         HttpSession session = request.getSession();
         BookService bookService = (BookService) session.getAttribute(BOOKSERVICE);
 
@@ -64,23 +62,17 @@ public class FrontController3 extends HttpServlet {
         if (actionPathinfo == null) {
             actionPathinfo = "";
         }
-        System.out.println("=================> action = " + actionPathinfo);
         String action = actionPathinfo.substring(1); // ===> "bookList"
-        System.out.println("=================> action.substring(1) = " + action);
         
         if (action != null && !action.trim().isEmpty()) {
             switch (action) { 
                case UPDATE: {
-                    System.out.println("Buch update #1");
                     new BookUpdateAction().execute(request, response);
-                    System.out.println("Buch update #2");
                     nextPage = UPDATEPAGE;
                     break;
                 }
                case CREATE: {
-                   System.out.println("Buch create #1");
                    new BookCreateAction().execute(request, response);
-                   System.out.println("Buch create #4");
                     //nextPage = CREATEPAGE;
                     nextPage = READPAGE;
                     break;
@@ -95,9 +87,7 @@ public class FrontController3 extends HttpServlet {
                     break;
                 }
                 case SET: {
-                   System.out.println("Buch set #1");
-                    //new BookSetAction().execute(request, response);
-                   System.out.println("Buch set #10");
+                   new BookSetAction().execute(request, response);
                     //nextPage = CREATEPAGE;
                     nextPage = READPAGE;
                     break;
@@ -118,8 +108,6 @@ public class FrontController3 extends HttpServlet {
 
         }
  
-        System.out.println("=================> nextPage = " + nextPage);
-        
         if (nextPage != null) {
             RequestDispatcher requestDispatcher
                     = request.getRequestDispatcher(nextPage);
@@ -153,7 +141,7 @@ public class FrontController3 extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //processRequest(request, response);
+        processRequest(request, response);
     }
 
     /**

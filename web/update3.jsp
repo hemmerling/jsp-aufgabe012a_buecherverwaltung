@@ -44,14 +44,6 @@
         <c:set var="context2" value="${pageContext.request.contextPath}" />
         <form method="post" action="${context2}/FrontController3/set" name="theForm">
             <%
-//            Enumeration paramNames = request.getParameterNames();
-//            while (paramNames.hasMoreElements()) {
-//                String paramName = (String) paramNames.nextElement();
-//                String paramValue = request.getParameter(paramName);
-//                if (paramValue != null && !paramValue.trim().isEmpty()) {
-//                    out.print(paramValue + "</BR>");
-//                }
-//            } 
             if (request.getParameter("id2")!=null) {
                 BookService bookService = (BookService) session.getAttribute("bookservice");
                 String idString = request.getParameter("id2");
