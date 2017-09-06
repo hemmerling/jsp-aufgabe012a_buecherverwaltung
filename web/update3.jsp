@@ -3,16 +3,15 @@
     Created on : 17.07.2017, 17:33:53
     Author     : Administrator
 --%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<c:set var="context" value="${pageContext.request.contextPath}" />
 <%@page import="java.util.Enumeration"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="java.io.PrintWriter"%>
 <%@page import="com.hemmerling.aufgabe12a_buecherverwaltung.model.persistence.*"%>
 <%@page import="com.hemmerling.aufgabe12a_buecherverwaltung.model.business.*"%>
-
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -20,7 +19,7 @@
         <title>Buch anlegen [Web Components ( aufgabe12a_buchverwaltung )]</title>
     </head>
     <body>
-        <jsp:include page = "${context}/header3.jsp"/>
+        <jsp:include page = "/header3.jsp"/>
         <h1>Buch ändern</h1>
 
         <script type="text/javascript">
@@ -70,6 +69,6 @@
             <input type="reset" value="Reset" />
             <input type="submit" value="Submit" />
         </form>
-        <jsp:include page = "${context}/footer.jsp" />
+        <jsp:include page = "/footer.jsp" />
     </body>
 </html>

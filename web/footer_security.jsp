@@ -5,17 +5,15 @@
 --%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-<c:set var="context" value="${pageContext.request.contextPath}" />
-
 Login As: 
-<c:url value="${context}/FrontController4/login?username=user" var="link"/>
+<c:url value="/FrontController4/login?username=user" var="link"/>
 <a href="${link}">user</a> | 
-<c:url value="${context}/FrontController4/login?username=manager" var="link"/>
+<c:url value="/FrontController4/login?username=manager" var="link"/>
 <a href="${link}">manager</a> | 
-<c:url value="${context}/FrontController4/login?username=admin" var="link"/>
+<c:url value="/FrontController4/login?username=admin" var="link"/>
 <a href="${link}">admin</a> | 
 
-<c:url value="${context}/FrontController4/logout" var="link"/>
+<c:url value="/FrontController4/logout" var="link"/>
 <a href="${link}">Logout</a> <br/><br/>
 
 <table border="1">

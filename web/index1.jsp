@@ -3,7 +3,6 @@
     Created on : 09.08.2017, 11:14:06
     Author     : rhemmerling
 --%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>

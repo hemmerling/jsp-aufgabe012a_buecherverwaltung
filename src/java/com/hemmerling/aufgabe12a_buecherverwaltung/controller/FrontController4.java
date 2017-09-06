@@ -15,7 +15,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import com.hemmerling.aufgabe12a_buecherverwaltung.model.business.*;
 
-
 /**
  *
  * @author rhemmerling
@@ -29,13 +28,30 @@ public class FrontController4 extends HttpServlet {
     private static final String DELETE = "delete";
     private static final String SET = "set";
     private static final String UPDATE = "update";
+    private static final String LOGIN = "login";
+    private static final String LOGOUT = "logout";
 
-    private static final String STARTPAGE = "index.jsp";
+    private static final String STARTPAGE = "index4.jsp";
     private static final String CREATEPAGE = "create4.jsp";
     private static final String READPAGE = "read4.jsp";
     private static final String UPDATEPAGE = "update4.jsp";
 
     private static final String BOOKSERVICE = "bookservice";
+
+    private void doLogin(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        if (request.getUserPrincipal() != null) {
+            request.logout();
+            request.getAuthType();
+        }
+        String username = request.getParameter("username");
+        request.login(username, "password");
+    }
+
+    private void doLogout(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        if (request.getUserPrincipal() != null) {
+            request.logout();
+        }
+    }
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -45,7 +61,7 @@ public class FrontController4 extends HttpServlet {
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
-     * 
+     *
      * Processes just the doGet() request
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -63,16 +79,16 @@ public class FrontController4 extends HttpServlet {
             actionPathinfo = "";
         }
         String action = actionPathinfo.substring(1); // ===> "bookList"
-        
+
         if (action != null && !action.trim().isEmpty()) {
-            switch (action) { 
-               case UPDATE: {
+            switch (action) {
+                case UPDATE: {
                     new BookUpdateAction().execute(request, response);
                     nextPage = UPDATEPAGE;
                     break;
                 }
-               case CREATE: {
-                   new BookCreateAction().execute(request, response);
+                case CREATE: {
+                    new BookCreateAction().execute(request, response);
                     //nextPage = CREATEPAGE;
                     nextPage = READPAGE;
                     break;
@@ -87,27 +103,40 @@ public class FrontController4 extends HttpServlet {
                     break;
                 }
                 case SET: {
-                   new BookSetAction().execute(request, response);
+                    new BookSetAction().execute(request, response);
                     //nextPage = CREATEPAGE;
                     nextPage = READPAGE;
                     break;
                 }
                 case CREATEPAGE: {
-                    nextPage = "/"+CREATEPAGE;
+                    nextPage = "/" + CREATEPAGE;
                     break;
                 }
                 case READPAGE: {
-                    nextPage = "/"+READPAGE;
+                    nextPage = "/" + READPAGE;
                     break;
                 }
                 case UPDATEPAGE: {
-                    nextPage = "/"+UPDATEPAGE;
+                    nextPage = "/" + UPDATEPAGE;
                     break;
+                }
+                case LOGIN: {
+                    doLogin(request, response);
+                    nextPage = STARTPAGE;
+                    break;
+                }
+                case LOGOUT: {
+                    doLogout(request, response);
+                    nextPage = STARTPAGE;
+                    break;
+                }
+                default: {
+                    System.out.println("/FrontController command error ( 'default' )");
                 }
             }
 
         }
- 
+
         if (nextPage != null) {
             RequestDispatcher requestDispatcher
                     = request.getRequestDispatcher(nextPage);

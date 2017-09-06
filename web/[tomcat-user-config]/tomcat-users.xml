@@ -43,7 +43,7 @@
  <role rolename="USER"/>
   
  <!-- Benutzerkonfiguration -->
- <user username="admin" password="admin" roles="ADMIN"/>
- <user username="manager" password="manager" roles="MANAGER"/>
- <user username="user" password="user" roles="USER"/>
+ <user username="admin" password="password" roles="ADMIN"/>
+ <user username="manager" password="password" roles="MANAGER"/>
+ <user username="user" password="password" roles="USER"/>
 </tomcat-users>

@@ -3,14 +3,14 @@
     Created on : 17.07.2017, 17:33:53
     Author     : Administrator
 --%>
-
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<c:set var="context" value="${pageContext.request.contextPath}" />
 <%@page import="java.util.List"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.hemmerling.aufgabe12a_buecherverwaltung.model.business.BookService"%>
 <%@page import="com.hemmerling.aufgabe12a_buecherverwaltung.model.persistence.Book"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -18,7 +18,7 @@
         <title>Booklist</title>
     </head>
     <body>
-        <jsp:include page = "${context}/header3.jsp" />
+        <jsp:include page = "/header3.jsp" />
         <c:set var="context2" value="${pageContext.request.contextPath}" />
         <h1>Booklist</h1>
         <%
@@ -44,6 +44,6 @@
                 <% } %>
         
         <% }%>
-        <jsp:include page = "${context}/footer.jsp" />
+        <jsp:include page = "/footer.jsp" />
     </body>
 </html>

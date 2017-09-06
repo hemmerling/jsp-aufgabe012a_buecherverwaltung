@@ -3,15 +3,15 @@
     Created on : 17.07.2017, 17:33:53
     Author     : Administrator
 --%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<c:set var="context" value="${pageContext.request.contextPath}" />
 <%@page import="java.util.Enumeration"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="java.io.PrintWriter"%>
 <%@page import="com.hemmerling.aufgabe12a_buecherverwaltung.model.persistence.*"%>
 <%@page import="com.hemmerling.aufgabe12a_buecherverwaltung.model.business.*"%>
-
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
 <html>
@@ -20,7 +20,7 @@
         <title>Buch anlegen [Web Components ( aufgabe12a_buchverwaltung )]</title>
     </head>
     <body>
-        <jsp:include page = "${context}/header2.jsp"/>
+        <jsp:include page = "/header2.jsp"/>
         <h1>Buch anlegen</h1>
 
         <script type="text/javascript">
@@ -41,8 +41,7 @@
                 document.getElementsByName("genre")[0].value = 'sachbuch';
             }
         </script>
-        <c:set var="context2" value="${pageContext.request.contextPath}" />
-        <form method="post" action="${context2}/FrontController2" name="theForm">
+        <form method="post" action="${context}/FrontController2" name="theForm">
             <%
 //            Enumeration paramNames = request.getParameterNames();
 //            while (paramNames.hasMoreElements()) {
@@ -82,6 +81,6 @@
             <input type="reset" value="Reset" />
             <input type="submit" value="Submit" />
         </form>
-        <jsp:include page = "${context}/footer.jsp" />
+        <jsp:include page = "/footer.jsp" />
     </body>
 </html>

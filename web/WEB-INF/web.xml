@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+         version="3.0">
+  <error-page>
+    <error-code>403</error-code>
+    <location>/access_denied.jsp</location>
+  </error-page>
+  
+  <security-role>
+    <role-name>ADMIN</role-name>
+  </security-role>
+  <security-role>
+    <role-name>MANAGER</role-name>
+  </security-role>
+  <security-role>
+    <role-name>USER</role-name>
+  </security-role>
+  
+  <login-config>
+    <auth-method>FORM</auth-method>
+    <realm-name>company-auth-system</realm-name> 
+    <form-login-config>
+      <form-login-page>/login.jsp</form-login-page>
+      <form-error-page>/login_failed.jsp</form-error-page>
+    </form-login-config>
+  </login-config>
+  
+  <!-- ######################## Bücher auflisten ######################## --> 
+ 
+  <security-constraint>
+    <web-resource-collection>
+      <web-resource-name>Buecher auflisten - 1a</web-resource-name>
+      <url-pattern>/FrontController4/read</url-pattern>
+      <http-method>GET</http-method>
+    </web-resource-collection>
+    <auth-constraint>
+      <role-name>*</role-name>
+    </auth-constraint>
+  </security-constraint>
+
+  <!-- ################################################################## --> 
+  <!-- ######################## Bücher anlegen, aktualisieren ######################## --> 
+  
+   <security-constraint>
+    <web-resource-collection>
+      <web-resource-name>Bücher anlegen, aktualisieren - 2a</web-resource-name>
+      <url-pattern>/FrontController4/create</url-pattern>
+      <url-pattern>/FrontController4/set</url-pattern>
+      <url-pattern>/FrontController4/update</url-pattern>
+      <http-method>POST</http-method>
+    </web-resource-collection>
+
+    <web-resource-collection>
+      <web-resource-name>Bücher anlegen, aktualisieren - 2b</web-resource-name>
+      <url-pattern>/create4.jsp</url-pattern>
+      <url-pattern>/update4.jsp</url-pattern>
+      <url-pattern>/FrontController3/update</url-pattern>
+      <http-method>GET</http-method>
+    </web-resource-collection>
+
+    <auth-constraint>
+      <role-name>ADMIN</role-name>
+      <role-name>MANAGER</role-name>
+    </auth-constraint>
+  </security-constraint>
+  
+  <!-- ######################## Buch löschen ######################## --> 
+  <security-constraint>
+    <web-resource-collection>
+      <web-resource-name>Buch löschen - 3</web-resource-name>
+      <url-pattern>/FrontController4/delete</url-pattern>
+      <http-method>GET</http-method>
+    </web-resource-collection>
+    <auth-constraint>
+      <role-name>ADMIN</role-name>
+    </auth-constraint>
+  </security-constraint>
+  <!-- ################################################################## --> 
+  
+  <!-- ##################################### Verbote ##################################### -->
+  <security-constraint>
+    <web-resource-collection>
+      <web-resource-name>Buecher auflisten - 1a_verbot</web-resource-name>
+      <url-pattern>/FrontController4/read</url-pattern>
+      <http-method-omission>GET</http-method-omission>
+    </web-resource-collection>
+
+    <web-resource-collection>
+      <web-resource-name>Buecher anlegen, aktualisieren - 2a_verbot</web-resource-name>
+      <url-pattern>/FrontController4/create</url-pattern>
+      <url-pattern>/FrontController4/set</url-pattern>
+      <url-pattern>/FrontController4/update</url-pattern>
+      <http-method-omission>POST</http-method-omission>
+    </web-resource-collection>
+
+ 
+    <web-resource-collection>
+      <web-resource-name>Bücher anlegen, aktualisieren - 2b_verbot</web-resource-name>
+      <url-pattern>/create4.jsp</url-pattern>
+      <url-pattern>/update4.jsp</url-pattern>
+      <url-pattern>/FrontController4/update</url-pattern>
+      <http-method-omission>GET</http-method-omission>
+    </web-resource-collection>
+
+    <web-resource-collection>
+      <web-resource-name>Buch löschen - 3_verbot</web-resource-name>
+      <url-pattern>/FrontController4/delete</url-pattern>
+      <http-method-omission>GET</http-method-omission>
+    </web-resource-collection>
+
+    <auth-constraint/>  <!-- VERBOT -->
+  </security-constraint>
+  <!-- ################################################################################### -->
+  
+  <session-config>
+    <session-timeout>
+      30
+    </session-timeout>
+  </session-config>
+</web-app>
