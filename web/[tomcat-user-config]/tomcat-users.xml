@@ -36,14 +36,14 @@
   <user username="both" password="tomcat" roles="tomcat,role1"/>
   <user username="role1" password="tomcat" roles="role1"/>
 -->
-<user username="ide" password="W00lWAmP" roles="manager-script,admin"/>
+<user username="ide" password="ide" roles="manager-script,admin"/>
 
  <role rolename="ADMIN"/>
  <role rolename="MANAGER"/>
  <role rolename="USER"/>
   
  <!-- Benutzerkonfiguration -->
- <user username="admin" password="a" roles="ADMIN"/>
- <user username="manager" password="a" roles="MANAGER"/>
- <user username="user" password="a" roles="USER"/>
+ <user username="admin" password="admin" roles="ADMIN"/>
+ <user username="manager" password="manager" roles="MANAGER"/>
+ <user username="user" password="user" roles="USER"/>
 </tomcat-users>
