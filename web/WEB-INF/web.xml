@@ -8,6 +8,10 @@
     <error-code>403</error-code>
     <location>/access_denied.jsp</location>
   </error-page>
+  <error-page>
+    <error-code>404</error-code>
+    <location>/not_found.jsp</location>
+  </error-page>
   
   <security-role>
     <role-name>ADMIN</role-name>

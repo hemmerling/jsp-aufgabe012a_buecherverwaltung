@@ -35,6 +35,9 @@ public class FrontController4 extends HttpServlet {
     private static final String CREATEPAGE = "create4.jsp";
     private static final String READPAGE = "read4.jsp";
     private static final String UPDATEPAGE = "update4.jsp";
+    private static final String LOGINPAGE = "login.jsp";
+    private static final String LOGOUTPAGE = "logout.jsp";
+    private static final String SECURITYINFO = "security_info.jsp";
 
     private static final String BOOKSERVICE = "bookservice";
 
@@ -118,6 +121,14 @@ public class FrontController4 extends HttpServlet {
                 }
                 case UPDATEPAGE: {
                     nextPage = "/" + UPDATEPAGE;
+                    break;
+                }
+                case LOGINPAGE: {
+                    nextPage = "/" + LOGINPAGE;
+                    break;
+                }
+                case LOGOUTPAGE: {
+                    nextPage = "/" + LOGOUTPAGE;
                     break;
                 }
                 case LOGIN: {

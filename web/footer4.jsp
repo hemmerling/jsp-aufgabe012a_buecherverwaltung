@@ -4,4 +4,4 @@
     Author     : rhemmerling
 --%>
 <p>This software is distributed under the Apache 2 license.</p>
-<jsp:include page="/footer_security.jsp" />
+<jsp:include page="/security_info.jsp" />
