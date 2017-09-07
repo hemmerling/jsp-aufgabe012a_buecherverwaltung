@@ -133,16 +133,16 @@ public class FrontController4 extends HttpServlet {
                 }
                 case LOGIN: {
                     doLogin(request, response);
-                    nextPage = STARTPAGE;
+                    nextPage = "/" + STARTPAGE;
                     break;
                 }
                 case LOGOUT: {
                     doLogout(request, response);
-                    nextPage = STARTPAGE;
+                    nextPage = "/" + STARTPAGE;
                     break;
                 }
                 default: {
-                    System.out.println("/FrontController command error ( 'default' )");
+                    System.out.println("/FrontController command error ( 'default' ): " + action);
                 }
             }
 

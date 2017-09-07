@@ -15,7 +15,7 @@
     </head>
     <body>
         <jsp:include page = "/header4.jsp"/>
-        <h1>Web Components ( aufgabe12a_buchverwaltung ) ohne Login - Startseite</h1>
+        <h1>Web Components ( aufgabe12a_buchverwaltung ) mit Login - Startseite</h1>
         <jsp:include page = "/footer4.jsp" />
     </body>
 </html>

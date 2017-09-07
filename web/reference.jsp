@@ -13,11 +13,11 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Zugriff verweigert ( HTTP Status 403 )</title>
+        <title>Unberechtigter direkter Zugriff ( HTTP Status 400 )</title>
     </head>
     <body>
         <jsp:include page = "header4.jsp"/>
-        <h1>Zugriff verweigert ( HTTP Status 403 )</h1>
+        <h1>Unberechtigter direkter Zugriff ( HTTP Status 400 )</h1>
         <jsp:include page = "footer4.jsp" />
     </body>
 </html>

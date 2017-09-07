@@ -13,11 +13,11 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Nicht gefunden</title>
+        <title>Nicht gefunden ( HTTP Status 404 )</title>
     </head>
     <body>
         <jsp:include page = "header4.jsp"/>
-        <h1>Nicht gefunden</h1>
+        <h1>Nicht gefunden ( HTTP Status 404 )</h1>
         <jsp:include page = "footer4.jsp" />
     </body>
 </html>
